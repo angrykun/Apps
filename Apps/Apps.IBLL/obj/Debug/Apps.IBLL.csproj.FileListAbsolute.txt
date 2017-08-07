@@ -1,5 +1,10 @@
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\Apps.IBLL.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\Apps.IBLL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\Apps.Models.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\EntityFramework.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\Apps.Models.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\EntityFramework.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\obj\Debug\Apps.IBLL.csprojResolveAssemblyReference.cache
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\obj\Debug\Apps.IBLL.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\obj\Debug\Apps.IBLL.pdb

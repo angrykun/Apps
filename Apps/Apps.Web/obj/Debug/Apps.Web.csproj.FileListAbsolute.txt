@@ -30,6 +30,8 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Owin.Security.Microsof
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Owin.Security.OAuth.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Owin.Security.Twitter.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\MySql.Data.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\MySql.Data.Entity.EF6.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Newtonsoft.Json.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Owin.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\System.Web.Helpers.dll
@@ -86,3 +88,13 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\zh-Hans\Microsoft.Owin.Security.
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\obj\Debug\Apps.Web.csprojResolveAssemblyReference.cache
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\obj\Debug\Apps.Web.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\obj\Debug\Apps.Web.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Models.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Models.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.BLL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.IBLL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.IDAL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.DAL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.BLL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.IBLL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.IDAL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.DAL.pdb

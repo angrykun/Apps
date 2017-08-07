@@ -1,5 +1,16 @@
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.DAL.dll.config
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.DAL.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.DAL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.IDAL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.Models.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\EntityFramework.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.IDAL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.Models.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\EntityFramework.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\obj\Debug\Apps.DAL.csprojResolveAssemblyReference.cache
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\obj\Debug\Apps.DAL.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\obj\Debug\Apps.DAL.pdb
