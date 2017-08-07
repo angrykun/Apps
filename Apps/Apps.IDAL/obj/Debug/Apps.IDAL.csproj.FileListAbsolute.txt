@@ -1,0 +1,5 @@
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IDAL\bin\Debug\Apps.IDAL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IDAL\bin\Debug\Apps.IDAL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IDAL\obj\Debug\Apps.IDAL.csprojResolveAssemblyReference.cache
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IDAL\obj\Debug\Apps.IDAL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IDAL\obj\Debug\Apps.IDAL.pdb

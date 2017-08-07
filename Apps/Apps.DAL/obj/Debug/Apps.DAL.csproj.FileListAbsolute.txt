@@ -1,0 +1,5 @@
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.DAL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\bin\Debug\Apps.DAL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\obj\Debug\Apps.DAL.csprojResolveAssemblyReference.cache
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\obj\Debug\Apps.DAL.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.DAL\obj\Debug\Apps.DAL.pdb

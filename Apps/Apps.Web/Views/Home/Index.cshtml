@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/easyuicss")
+</head>
+<body>
+    <div class="easyui-layout" data-options="fit:'true'">
+        @* Head 网页头 *@
+        <div data-options="region:'north',split:true,collapsible:false" style="height:100px;">
+            <div style="line-height:93px;display: inline-block;padding: 0 5px;width: 100px;text-align: center;">
+                Logo
+            </div>
+            <div style="display:inline-block">
+                Demo 管理系统
+            </div>
+        </div>
+        @* West 左侧树形*@
+        <div data-options="region:'west',title:'菜单列表',split:true" style="width:100px;">
+            west
+        </div>
+        @* Center 主体内容*@
+        <div data-options="region:'center',border:false">
+            <div id="mainTab" class="easyui-tabs" data-options="fit:'true'">
+                <div title="我的桌面" data-options="closable:true" style="overflow:hidden">
+                    <iframe scrolling="auto" frameborder="0" src="http://www.baidu.com" style="width:100%;height:100%">
+                        ...
+                    </iframe>
+                </div>
+                <div title="标题" data-options="closable:true" style="overflow:hidden">
+                    <iframe scrolling="auto" frameborder="0" src="" style="width:100%;height:100%">
+                        ...
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        @* 右键菜单  *@
+        <div id="tab_menu" class="easyui-menu" style="width:150px;">
+            <div id="tab_menu-tabrefresh" data-options="iconCls:'icon-reload'">刷新</div>
+            <div id="tab_menu-openFrame">在新的窗体打开</div>
+            <div id="tab_menu-tabcloseall">关闭所有</div>
+            <div id="tab_menu-tabcloseothers">关闭其他标签页</div>
+            <div class="menu-sep"></div>
+            <div id="tab_menu-tabcloseleft">关闭左边</div>
+            <div id="tab_menu-tabcloseright">关闭右边</div>
+            <div id="tab_menu-tabclose" data-options="iconCls:'icon-remove'">关闭</div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/easyui")
+    @Scripts.Render("~/bundles/home")
+
+</body>
+</html>

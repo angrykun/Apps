@@ -1,0 +1,4 @@
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\Apps.Core.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\Apps.Core.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\obj\Debug\Apps.Core.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\obj\Debug\Apps.Core.pdb
