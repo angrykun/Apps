@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Apps.Models;
+using Apps.Models.Sys;
 
 namespace Apps.IBLL
 {
     public interface ISysSampleBLL
     {
-        IQueryable<syssample> GetList(string queryStr);
-        bool Create(syssample entity);
+        List<SysSampleModel> GetList(string queryStr);
+        bool Create(SysSampleModel entity);
         bool Delete(int id);
-        bool Edit(syssample entity);
-        syssample GetById(int id);
+        bool Edit(SysSampleModel entity);
+        SysSampleModel GetById(int id);
         bool IsExist(int id);
     }
 }

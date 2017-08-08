@@ -98,3 +98,14 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.BLL.pdb
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.IBLL.pdb
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.IDAL.pdb
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.DAL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.ServiceLocation.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.Configuration.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.ServiceLocation.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.ServiceLocation.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.Configuration.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Core.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Core.pdb

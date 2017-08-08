@@ -78,6 +78,7 @@
     <Compile Include="syssample.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys\SysSampleModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
