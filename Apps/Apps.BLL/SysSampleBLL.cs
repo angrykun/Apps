@@ -9,6 +9,8 @@ using Apps.Models;
 using Apps.Models.Sys;
 using Apps.IBLL;
 using Microsoft.Practices.Unity;
+using Apps.Common;
+
 
 namespace Apps.BLL
 {
@@ -18,15 +20,56 @@ namespace Apps.BLL
         //private ISysSampleRepository Rep = new SysSampleRepository();
         [Dependency]
         public ISysSampleRepository Rep { get; set; }
-        public List<SysSampleModel> GetList(string queryStr)
+        public List<SysSampleModel> GetList(ref GridPager pager)
         {
             IQueryable<syssample> queryData = null;
             queryData = Rep.GetList(db);
-            return CreateModelList(ref queryData);
+
+            if (pager.sort == "desc")
+            {
+                switch (pager.order)
+                {
+                    case "ID":
+                        queryData = queryData.OrderByDescending(u => u.ID);
+                        break;
+                    case "Name":
+                        queryData = queryData.OrderByDescending(u => u.Name);
+                        break;
+                    default:
+                        queryData = queryData.OrderByDescending(u => u.CreateTime);
+                        break;
+                }
+            }
+            else
+            {
+                switch (pager.order)
+                {
+                    case "ID":
+                        queryData = queryData.OrderBy(u => u.ID);
+                        break;
+                    case "Name":
+                        queryData = queryData.OrderBy(u => u.Name);
+                        break;
+                    default:
+                        queryData = queryData.OrderBy(u => u.CreateTime);
+                        break;
+                }
+            }
+
+            return CreateModelList(ref queryData, ref pager);
         }
 
-        private List<SysSampleModel> CreateModelList(ref IQueryable<syssample> queryData)
+        private List<SysSampleModel> CreateModelList(ref IQueryable<syssample> queryData, ref GridPager pager)
         {
+            pager.totalRows = queryData.Count();
+            if (pager.totalRows > 0)
+            {
+                if (pager.page <= 1) pager.page = 1;
+
+                queryData = queryData.Skip((pager.page - 1) * pager.rows).Take(pager.rows);
+
+            }
+
             List<SysSampleModel> modelList = (from r in queryData
                                               select new SysSampleModel
                                               {

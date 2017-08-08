@@ -8,3 +8,5 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\zh-Hans\EntityFramework.r
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\obj\Debug\Apps.IBLL.csprojResolveAssemblyReference.cache
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\obj\Debug\Apps.IBLL.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\obj\Debug\Apps.IBLL.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\Apps.Common.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.IBLL\bin\Debug\Apps.Common.pdb

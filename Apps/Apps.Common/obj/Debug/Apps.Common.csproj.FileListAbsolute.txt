@@ -2,3 +2,4 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.Common\bin\Debug\Apps.Common.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Common\bin\Debug\Apps.Common.pdb
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Common\obj\Debug\Apps.Common.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Common\obj\Debug\Apps.Common.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Common\obj\Debug\Apps.Common.csprojResolveAssemblyReference.cache

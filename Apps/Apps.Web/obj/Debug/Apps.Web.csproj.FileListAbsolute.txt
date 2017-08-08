@@ -109,3 +109,5 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.Config
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Core.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Core.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Common.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Web\bin\Apps.Common.pdb

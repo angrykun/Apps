@@ -42,3 +42,5 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\zh-Hans\System.Web.Razor.
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\zh-Hans\System.Web.WebPages.Razor.resources.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\zh-Hans\System.Web.WebPages.resources.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\Apps.Common.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.Core\bin\Debug\Apps.Common.pdb

@@ -1,72 +1,61 @@
-﻿@model IEnumerable<Apps.Models.Sys.SysSampleModel>
+﻿
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bir)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Photo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreateTime)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Age)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bir)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Photo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Note)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreateTime)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-                </td>
-            </tr>
+@section style{
+    <style type="text/css">
+        .mvctool a, .mvctool input {
+            float: left;
         }
 
-    </table>
-</body>
-</html>
+        .mvctool .l-btn-text {
+            background-position: 5%;
+        }
+    </style>
+}
+<div class="mvctool">
+    <input id="txtQuery" type="text" class="searchText">
+    <a id="btnQuery" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnCreate" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-add" style="padding-left: 20px;">新增</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnEdit" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnDetails" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnDelete" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
+    <a id="btnExport" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
+    <a id="btnReload" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+</div>
+
+<table id="list"></table>
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#list").datagrid({
+                url: '/SysSample/GetList',
+                width: $(window).width() - 10,
+                methord: 'post',
+                height: $(window).height() - 35,
+                fitColumns: true,
+                sortName: 'ID',
+                sortOrder: 'desc',
+                idField: 'ID',
+                striped: true, //奇偶行是否区分
+                singleSelect: true,//单选模式
+                rownumbers: true,//行号
+                pagination: true,//启用分页
+                pageNumber: 1,//初始化页数
+                pageSize: 10,//初始化页面大小
+                pageList: [5, 10, 15, 20, 25, 30], //初始化页面大小选择
+                columns: [[
+                    { field: 'ID', title: 'ID', width: 80 },
+                    { field: 'Name', title: '名称', width: 120 },
+                    { field: 'Age', title: '年龄', width: 80, align: 'right' },
+                    { field: 'Bir', title: '生日', width: 80, align: 'right' },
+                    { field: 'Photo', title: '照片', width: 200 },
+                    { field: 'Note', title: '说明', width: 60, align: 'center' },
+                    { field: 'CreateTime', title: '创建时间', width: 100, align: 'center' }
+                ]]
+            });
+        });
+    </script>
+}

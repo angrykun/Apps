@@ -70,6 +70,10 @@
       <Project>{29349dd9-8d5f-4c00-8139-b972e455c536}</Project>
       <Name>Apps.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Apps.Common\Apps.Common.csproj">
+      <Project>{8f80ceff-688a-47fa-8bd8-764ca0ae5f64}</Project>
+      <Name>Apps.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Apps.DAL\Apps.DAL.csproj">
       <Project>{8db41d1e-c018-4d0e-939f-4e64e7fd4f2e}</Project>
       <Name>Apps.DAL</Name>
