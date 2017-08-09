@@ -136,14 +136,14 @@ namespace Apps.BLL
             try
             {
                 syssample entity = Rep.GetById(model.ID);
-                if (entity != null)
+                if (entity == null)
                 {
                     return false;
                 }
                 entity = new syssample();
                 entity.ID = model.ID;
                 entity.Name = model.Name;
-                entity.Note = model.Name;
+                entity.Note = model.Note;
                 entity.Photo = model.Photo;
                 entity.Bir = model.Bir;
                 entity.Age = model.Age;

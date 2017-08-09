@@ -30,6 +30,8 @@ namespace Apps.DAL
                 var entity = GetById(id);
                 if (entity != null)
                 {
+                    //改变实体状态，否则无法删除(报错)
+                    db.Entry(entity).State = EntityState.Deleted;
                     db.Set<syssample>().Remove(entity);
                 }
                 return db.SaveChanges();
@@ -38,12 +40,20 @@ namespace Apps.DAL
 
         public int Edit(syssample entity)
         {
-            using (DbContainer db = new DbContainer())
+            try
             {
-                db.Set<syssample>().Attach(entity);
-                db.Entry<syssample>(entity).State = EntityState.Modified;
-                return db.SaveChanges();
+                using (DbContainer db = new DbContainer())
+                {
+                    db.Set<syssample>().Attach(entity);
+                    db.Entry(entity).State = EntityState.Modified;
+                    return db.SaveChanges();
+                }
             }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+
         }
 
         public syssample GetById(int id)

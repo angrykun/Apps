@@ -12,6 +12,7 @@ namespace Apps.Models.Sys
         [Display(Name = "ID")]
         public int ID { get; set; }
         [Display(Name = "名称")]
+        [Required]
         public string Name { get; set; }
         [Display(Name = "年龄")]
         public Nullable<long> Age { get; set; }

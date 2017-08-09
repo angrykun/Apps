@@ -14,6 +14,8 @@
         }
     </style>
 }
+<div id="modalwindow" class="easyui-window" data-ng-options="modal:true,closed:true,minimizable:false,shadow:false"></div>
+
 <div class="mvctool">
     <input id="txtQuery" type="text" class="searchText">
     <a id="btnQuery" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-search" style="padding-left: 20px;">查询</span></span></a><div class="datagrid-btn-separator"></div>
@@ -21,13 +23,13 @@
     <a id="btnEdit" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-edit" style="padding-left: 20px;">编辑</span></span></a><div class="datagrid-btn-separator"></div>
     <a id="btnDetails" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-details" style="padding-left: 20px;">详细</span></span></a><div class="datagrid-btn-separator"></div>
     <a id="btnDelete" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-remove" style="padding-left: 20px;">删除</span></span></a><div class="datagrid-btn-separator"></div>
-    <a id="btnExport" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-export" style="padding-left: 20px;">导出</span></span></a>
-    <a id="btnReload" class="l-btn l-btn-plain"><span class="l-btn-left"><span class="l-btn-text icon-reload" style="padding-left: 20px;">刷新</span></span></a>
+
 </div>
 
 <table id="list"></table>
 
 @section scripts{
+    @Scripts.Render("~/bundles/easyui.plus")
     <script>
         $(function () {
             $("#list").datagrid({
@@ -55,6 +57,101 @@
                     { field: 'Note', title: '说明', width: 60, align: 'center' },
                     { field: 'CreateTime', title: '创建时间', width: 100, align: 'center' }
                 ]]
+            });
+        });
+    </script>
+    <script>
+        //生成唯一GUID
+        function GetGuid() {
+            var s4 = function () {
+                return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+            };
+            return s4() + s4() + s4() + "-" + s4();
+        }
+
+        //关闭iframe
+        function frameReturnByClose() {
+            $("#modalwindow").window('close');
+        }
+
+        function frameReturnByReload(flag) {
+            if (flag)
+                $("#list").datagrid('load');
+            else
+                $("#list").datagrid('reload');
+        }
+
+        //弹框提示
+        function frameReturnByMes(mes) {
+            $.messager.alert("提示", mes);
+        }
+
+        $(function () {
+            //关闭window弹窗
+            $("#modalwindow").window('close');
+            //新增
+            $("#btnCreate").click(function () {
+                $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='SysSample/Create'></iframe>")
+                    .window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' })
+                    .window('open');
+            });
+            //编辑
+            $("#btnEdit").click(function () {
+                var row = $("#list").datagrid("getSelected");
+
+                if (row != null) {
+                    $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='SysSample/Edit?ID=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>")
+                    .window({ title: '编辑', width: 700, height: 430, iconCls: 'icon-edit' })
+                    .window("open");
+                }
+                else {
+                    $.messageBox5s('提示', '请选择要操作的记录');
+                }
+            });
+
+            //详细信息
+            $("#btnDetails").click(function () {
+                var row = $("#list").datagrid("getSelected");
+                if (row != null) {
+                    $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='SysSample/Details?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>")
+                     .window({ title: '详细', width: 500, height: 300, iconCls: 'icon-details' })
+                     .window("open");
+                }
+                else {
+                    $.messageBox5s('提示', '请选择要操作的记录');
+                }
+            });
+
+
+            //查询
+            $("#btnQuery").click(function () {
+                var query = $("#txtQuery").val();
+                if (query == null || query == '') {
+                    query = "%";
+                }
+                $("#list").datagrid({
+                    url: '/SysSample/GetList?queryStr=' + encodeURI(query)
+                });
+            });
+
+            //删除
+            $("#btnDelete").click(function () {
+                var row = $("#list").datagrid("getSelected");
+                if (row != null) {
+                    $.messager.confirm("提示", "确定删除", function (r) {
+                        if (r) {
+                            $.post("/SysSample/Delete?id=" + row.ID, function (data) {
+                                if (data == 1) {
+                                    $("#list").datagrid('reload');
+                                }
+                                $.messageBox5s('提示', data.message);
+                            });
+                        }
+                    }, "json");
+                }
+                else {
+                    $.messageBox5s('提示', '请选择要操作的记录');
+                }
             });
         });
     </script>

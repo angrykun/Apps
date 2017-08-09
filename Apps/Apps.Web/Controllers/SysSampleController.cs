@@ -49,5 +49,72 @@ namespace Apps.Web.Controllers
             };
             return Json(json, JsonRequestBehavior.AllowGet);
         }
+
+        #region Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ValidateInput(true)]
+        public ActionResult Create(SysSampleModel model)
+        {
+            if (m_BLL.Create(model))
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(0, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        #endregion
+
+        public ActionResult Details(int id)
+        {
+            var entity = m_BLL.GetById(id);
+            return View(entity);
+        }
+
+        #region Edit
+        public ActionResult Edit(int id)
+        {
+            var entity = m_BLL.GetById(id);
+
+            return View(entity);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(SysSampleModel model)
+        {
+            if (m_BLL.Edit(model))
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(0, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
+
+        #region Delete
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            if (m_BLL.Delete(id))
+            {
+                return Json(1, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(0, JsonRequestBehavior.AllowGet);
+            }
+        }
+        #endregion
+
     }
 }

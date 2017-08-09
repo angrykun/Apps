@@ -27,9 +27,17 @@ namespace Apps.Web
             bundles.Add(new ScriptBundle("~/bundles/easyui").Include(
                       "~/Scripts/jquery.easyui-1.4.5.js",
                       "~/Scripts/locale/easyui-lang-zh_CN.js"));
+
+            //jquery.form js 文件
+            bundles.Add(new ScriptBundle("~/bundles/form").Include(
+                      "~/Scripts/jquery.form.js"));
+
             //home js 文件
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                       "~/Scripts/home.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/easyui.plus").Include(
+                       "~/Scripts/jquery.easyui.plus.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
