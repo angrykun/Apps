@@ -143,8 +143,10 @@
                             $.post("/SysSample/Delete?id=" + row.ID, function (data) {
                                 if (data == 1) {
                                     $("#list").datagrid('reload');
+                                    $.messageBox5s('提示', "删除成功");
+                                    return;
                                 }
-                                $.messageBox5s('提示', data.message);
+                                $.messageBox5s('提示', "删除失败");
                             });
                         }
                     }, "json");
