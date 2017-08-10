@@ -1,14 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AppsDbdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DbContainer" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="SysMoudle" EntityType="AppsDbdbModel.SysMoudle" />
     <EntitySet Name="SysSample" EntityType="AppsDbdbModel.SysSample" />
+    <EntitySet Name="SysModule" EntityType="AppsDbdbModel.SysModule" />
   </EntityContainer>
-  <EntityType Name="SysMoudle">
+  <EntityType Name="SysSample">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int64" />
+    <Property Name="Bir" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="SysModule">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="EnglishName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="ParentID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -21,17 +33,5 @@
     <Property Name="CreateTime" Type="DateTime" />
     <Property Name="IsLast" Type="Boolean" />
     <Property Name="Version" Type="DateTime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="SysSample">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Age" Type="Int64" />
-    <Property Name="Bir" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Photo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Note" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-    <Property Name="CreateTime" Type="DateTime" />
   </EntityType>
 </Schema>

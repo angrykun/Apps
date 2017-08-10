@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="99ec4ab83ef941fababfecf80aad6343" Name="Diagram1">
-        <EntityTypeShape EntityType="AppsDbdbModel.SysMoudle" Width="1.5" PointX="3.75" PointY="0.75" />
         <EntityTypeShape EntityType="AppsDbdbModel.SysSample" PointX="0.75" PointY="0.75" Width="1.5" />
+        <EntityTypeShape EntityType="AppsDbdbModel.SysModule" Width="1.5" PointX="4.375" PointY="2.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -25,7 +25,7 @@ namespace Apps.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<SysMoudle> SysMoudle { get; set; }
         public virtual DbSet<SysSample> SysSample { get; set; }
+        public virtual DbSet<SysModule> SysModule { get; set; }
     }
 }

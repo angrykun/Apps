@@ -5,11 +5,11 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AppsDbdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="SysMoudle">
+        <EntityType Name="SysModule">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="200" />
           <Property Name="EnglishName" Type="varchar" MaxLength="45" />
           <Property Name="ParentID" Type="varchar" MaxLength="45" />
@@ -36,7 +36,7 @@
           <Property Name="CreateTime" Type="datetime" Precision="0" />
         </EntityType>
         <EntityContainer Name="AppsDbdbModelStoreContainer">
-          <EntitySet Name="SysMoudle" EntityType="Self.SysMoudle" Schema="appsdb" store:Type="Tables" />
+          <EntitySet Name="SysModule" EntityType="Self.SysModule" Schema="appsdb" store:Type="Tables" />
           <EntitySet Name="SysSample" EntityType="Self.SysSample" Schema="appsdb" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -44,14 +44,26 @@
     <edmx:ConceptualModels>
       <Schema Namespace="AppsDbdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DbContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="SysMoudle" EntityType="AppsDbdbModel.SysMoudle" />
           <EntitySet Name="SysSample" EntityType="AppsDbdbModel.SysSample" />
+          <EntitySet Name="SysModule" EntityType="AppsDbdbModel.SysModule" />
         </EntityContainer>
-        <EntityType Name="SysMoudle">
+        <EntityType Name="SysSample">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int64" />
+          <Property Name="Bir" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Note" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="SysModule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="EnglishName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="ParentID" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
@@ -65,27 +77,28 @@
           <Property Name="IsLast" Type="Boolean" />
           <Property Name="Version" Type="DateTime" Nullable="false" />
         </EntityType>
-        <EntityType Name="SysSample">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Age" Type="Int64" />
-          <Property Name="Bir" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Photo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="Note" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
-          <Property Name="CreateTime" Type="DateTime" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AppsDbdbModelStoreContainer" CdmEntityContainer="DbContainer">
-        <EntitySetMapping Name="SysMoudle">
-            <EntityTypeMapping TypeName="AppsDbdbModel.SysMoudle">
-              <MappingFragment StoreEntitySet="SysMoudle">
+          <EntitySetMapping Name="SysSample">
+            <EntityTypeMapping TypeName="AppsDbdbModel.SysSample">
+              <MappingFragment StoreEntitySet="SysSample">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Bir" ColumnName="Bir" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysModule">
+            <EntityTypeMapping TypeName="AppsDbdbModel.SysModule">
+              <MappingFragment StoreEntitySet="SysModule">
                 <ScalarProperty Name="Version" ColumnName="Version" />
                 <ScalarProperty Name="IsLast" ColumnName="IsLast" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
@@ -97,19 +110,6 @@
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
                 <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SysSample">
-            <EntityTypeMapping TypeName="AppsDbdbModel.SysSample">
-              <MappingFragment StoreEntitySet="SysSample">
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Bir" ColumnName="Bir" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>

@@ -1,9 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AppsDbdbModelStoreContainer" CdmEntityContainer="DbContainer">
-    <EntitySetMapping Name="SysMoudle">
-      <EntityTypeMapping TypeName="AppsDbdbModel.SysMoudle">
-        <MappingFragment StoreEntitySet="SysMoudle">
+    <EntitySetMapping Name="SysSample">
+      <EntityTypeMapping TypeName="AppsDbdbModel.SysSample">
+        <MappingFragment StoreEntitySet="SysSample">
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Bir" ColumnName="Bir" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysModule">
+      <EntityTypeMapping TypeName="AppsDbdbModel.SysModule">
+        <MappingFragment StoreEntitySet="SysModule">
           <ScalarProperty Name="Version" ColumnName="Version" />
           <ScalarProperty Name="IsLast" ColumnName="IsLast" />
           <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
@@ -15,19 +28,6 @@
           <ScalarProperty Name="Url" ColumnName="Url" />
           <ScalarProperty Name="ParentID" ColumnName="ParentID" />
           <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SysSample">
-      <EntityTypeMapping TypeName="AppsDbdbModel.SysSample">
-        <MappingFragment StoreEntitySet="SysSample">
-          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-          <ScalarProperty Name="Note" ColumnName="Note" />
-          <ScalarProperty Name="Photo" ColumnName="Photo" />
-          <ScalarProperty Name="Bir" ColumnName="Bir" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
