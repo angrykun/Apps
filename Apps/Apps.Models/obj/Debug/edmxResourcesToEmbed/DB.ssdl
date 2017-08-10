@@ -1,6 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AppsDbdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="syssample">
+  <EntityType Name="SysMoudle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="200" />
+    <Property Name="EnglishName" Type="varchar" MaxLength="45" />
+    <Property Name="ParentID" Type="varchar" MaxLength="45" />
+    <Property Name="Url" Type="varchar" MaxLength="200" />
+    <Property Name="Iconic" Type="varchar" MaxLength="200" />
+    <Property Name="Sort" Type="uint" />
+    <Property Name="Remark" Type="varchar" MaxLength="4000" />
+    <Property Name="State" Type="bit" />
+    <Property Name="CreatePerson" Type="varchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" Precision="0" />
+    <Property Name="IsLast" Type="bit" />
+    <Property Name="Version" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysSample">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -13,6 +31,7 @@
     <Property Name="CreateTime" Type="datetime" Precision="0" />
   </EntityType>
   <EntityContainer Name="AppsDbdbModelStoreContainer">
-    <EntitySet Name="syssample" EntityType="Self.syssample" Schema="appsdb" store:Type="Tables" />
+    <EntitySet Name="SysMoudle" EntityType="Self.SysMoudle" Schema="appsdb" store:Type="Tables" />
+    <EntitySet Name="SysSample" EntityType="Self.SysSample" Schema="appsdb" store:Type="Tables" />
   </EntityContainer>
 </Schema>

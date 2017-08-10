@@ -9,11 +9,11 @@ namespace Apps.IDAL
 {
     public interface ISysSampleRepository
     {
-        IQueryable<syssample> GetList(DbContainer db);
-        int Create(syssample entity);
+        IQueryable<SysSample> GetList(DbContainer db);
+        int Create(SysSample entity);
         int Delete(int id);
-        int Edit(syssample entity);
-        syssample GetById(int id);
+        int Edit(SysSample entity);
+        SysSample GetById(int id);
         bool IsExist(int id);
 
     }

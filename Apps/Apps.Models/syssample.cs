@@ -12,7 +12,7 @@ namespace Apps.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class syssample
+    public partial class SysSample
     {
         public long ID { get; set; }
         public string Name { get; set; }

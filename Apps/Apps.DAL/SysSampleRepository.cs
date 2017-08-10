@@ -11,15 +11,15 @@ namespace Apps.DAL
 {
     public class SysSampleRepository : ISysSampleRepository
     {
-        public IQueryable<syssample> GetList(DbContainer db)
+        public IQueryable<SysSample> GetList(DbContainer db)
         {
-            return db.syssample.AsQueryable();
+            return db.SysSample.AsQueryable();
         }
-        public int Create(syssample entity)
+        public int Create(SysSample entity)
         {
             using (DbContainer db = new DbContainer())
             {
-                db.syssample.Add(entity);
+                db.SysSample.Add(entity);
                 return db.SaveChanges();
             }
         }
@@ -32,19 +32,19 @@ namespace Apps.DAL
                 {
                     //改变实体状态，否则无法删除(报错)
                     db.Entry(entity).State = EntityState.Deleted;
-                    db.Set<syssample>().Remove(entity);
+                    db.Set<SysSample>().Remove(entity);
                 }
                 return db.SaveChanges();
             }
         }
 
-        public int Edit(syssample entity)
+        public int Edit(SysSample entity)
         {
             try
             {
                 using (DbContainer db = new DbContainer())
                 {
-                    db.Set<syssample>().Attach(entity);
+                    db.Set<SysSample>().Attach(entity);
                     db.Entry(entity).State = EntityState.Modified;
                     return db.SaveChanges();
                 }
@@ -56,11 +56,11 @@ namespace Apps.DAL
 
         }
 
-        public syssample GetById(int id)
+        public SysSample GetById(int id)
         {
             using (DbContainer db = new DbContainer())
             {
-                return db.syssample.FirstOrDefault(u => u.ID == id);
+                return db.SysSample.FirstOrDefault(u => u.ID == id);
             }
         }
 

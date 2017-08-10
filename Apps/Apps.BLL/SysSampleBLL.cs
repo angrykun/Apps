@@ -22,7 +22,7 @@ namespace Apps.BLL
         public ISysSampleRepository Rep { get; set; }
         public List<SysSampleModel> GetList(ref GridPager pager)
         {
-            IQueryable<syssample> queryData = null;
+            IQueryable<SysSample> queryData = null;
             queryData = Rep.GetList(db);
 
             if (pager.sort == "desc")
@@ -59,7 +59,7 @@ namespace Apps.BLL
             return CreateModelList(ref queryData, ref pager);
         }
 
-        private List<SysSampleModel> CreateModelList(ref IQueryable<syssample> queryData, ref GridPager pager)
+        private List<SysSampleModel> CreateModelList(ref IQueryable<SysSample> queryData, ref GridPager pager)
         {
             pager.totalRows = queryData.Count();
             if (pager.totalRows > 0)
@@ -89,12 +89,12 @@ namespace Apps.BLL
             try
             {
 
-                syssample entity = Rep.GetById(model.ID);
+                SysSample entity = Rep.GetById(model.ID);
                 if (entity != null)
                 {
                     return false;
                 }
-                entity = new syssample();
+                entity = new SysSample();
                 entity.ID = model.ID;
                 entity.Name = model.Name;
                 entity.Note = model.Name;
@@ -135,12 +135,12 @@ namespace Apps.BLL
         {
             try
             {
-                syssample entity = Rep.GetById(model.ID);
+                SysSample entity = Rep.GetById(model.ID);
                 if (entity == null)
                 {
                     return false;
                 }
-                entity = new syssample();
+                entity = new SysSample();
                 entity.ID = model.ID;
                 entity.Name = model.Name;
                 entity.Note = model.Note;
@@ -161,7 +161,7 @@ namespace Apps.BLL
         {
             if (IsExist(id))
             {
-                syssample entity = Rep.GetById(id);
+                SysSample entity = Rep.GetById(id);
                 SysSampleModel model = new SysSampleModel();
                 model.ID = (int)entity.ID;
                 model.Name = entity.Name;

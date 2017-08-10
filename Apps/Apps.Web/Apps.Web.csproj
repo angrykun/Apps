@@ -544,6 +544,7 @@
     <Content Include="Content\themes\metro\validatebox.css" />
     <Content Include="Content\themes\metro\window.css" />
     <Content Include="Content\themes\mobile.css" />
+    <Content Include="Content\tree.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -566,6 +567,7 @@
     <Content Include="Scripts\jquery.easyui-1.4.5.min.js" />
     <Content Include="Scripts\jquery.easyui.mobile-1.4.5.js" />
     <Content Include="Scripts\jquery.easyui.mobile-1.4.5.min.js" />
+    <Content Include="Scripts\jquery.tree.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -639,6 +641,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
