@@ -36,6 +36,10 @@ namespace Apps.Web
             bundles.Add(new ScriptBundle("~/bundles/home").Include(
                       "~/Scripts/home.js"));
 
+            //tree js 文件
+            bundles.Add(new ScriptBundle("~/bundles/jquerytree").Include(
+                      "~/Scripts/jquery.tree.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/easyui.plus").Include(
                        "~/Scripts/jquery.easyui.plus.js"));
 
@@ -47,6 +51,9 @@ namespace Apps.Web
             bundles.Add(new StyleBundle("~/Content/easyuicss").Include(
                        "~/Content/themes/default/easyui.css",
                        "~/Content/themes/icon.css"));
+
+            bundles.Add(new StyleBundle("~/Content/tree").Include(
+                   "~/Content/tree.css"));
         }
     }
 }

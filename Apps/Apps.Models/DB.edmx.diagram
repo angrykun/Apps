@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="99ec4ab83ef941fababfecf80aad6343" Name="Diagram1">
         <EntityTypeShape EntityType="AppsDbdbModel.SysSample" PointX="0.75" PointY="0.75" Width="1.5" />
-        <EntityTypeShape EntityType="AppsDbdbModel.SysModule" Width="1.5" PointX="4.375" PointY="2.25" />
+        <EntityTypeShape EntityType="AppsDbdbModel.SysModule" Width="1.5" PointX="4.5" PointY="1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

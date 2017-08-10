@@ -86,6 +86,58 @@ $(function () {
     });
 });
 
-function addTab() {
-
+function addTab(subtitle,url,icon) {
+    if (!$("#mainTab").tabs('exists', subtitle)) {
+        $("#mainTab").tabs('add', {
+            title: subtitle,
+            content: createFrame(url),
+            closable: true,
+            icon: icon
+        });
+    } else {
+        $("#mainTab").tabs('select', subtitle);
+        $("#tab_menu-tabrefresh").trigger("click");
+    }
+    //菜单栏 隐藏
+    //$(".layout-button-left").trigger("click");
+    //tabClose();
 }
+function createFrame(url) {
+    var s = '<iframe frameborder="0" src="' + url + '" scrolling="auto" style="width:100%; height:99%"></iframe>';
+    return s;
+}
+$(function () {
+    $(".ui-skin-nav .li-skinitem span").click(function () {
+        var theme = $(this).attr("rel");
+        $.messager.confirm('提示', '切换皮肤将重新加载系统！', function (r) {
+            if (r) {
+                $.post("../../Home/SetThemes", { value: theme }, function (data) { window.location.reload(); }, "json");
+            }
+        });
+    });
+});
+$(function () {
+
+    var o = {
+        showcheck: false,
+        url: "/Home/GetTree",
+        onnodeclick: function (item) {
+            var tabTitie = item.text;
+            var url = "../../" + item.value;
+            var icon = item.Icon;
+            if (!item.hasChildren) {
+                addTab(tabTitie, url, icon);
+            } else {
+                $(this).parent().find("img").trigger("click");
+            }
+        }
+    }
+
+    $.post("/Home/GetTree", { "id": "0" }, function (data) {
+        if (data == "0") {
+            window.location = "/Account";
+        }
+        o.data = data;
+        $("#RightTree").treeview(o);;
+    }, "json");
+});

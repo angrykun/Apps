@@ -18,6 +18,9 @@ namespace Apps.Core
             //注入样例
             container.RegisterType<ISysSampleBLL, SysSampleBLL>();
             container.RegisterType<ISysSampleRepository, SysSampleRepository>();
+
+            container.RegisterType<IHomeBLL, HomeBLL>();
+            container.RegisterType<IHomeRepository, HomeRepository>();
         }
     }
 }

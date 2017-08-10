@@ -11,6 +11,7 @@
     <title>Index</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/easyuicss")
+    @Styles.Render("~/Content/tree")
 </head>
 <body>
     <div class="easyui-layout" data-options="fit:'true'">
@@ -24,19 +25,14 @@
             </div>
         </div>
         @* West 左侧树形*@
-        <div data-options="region:'west',title:'菜单列表',split:true" style="width:100px;">
-            west
+        <div data-options="region:'west',title:'菜单列表',split:true" style="width:180px;">
+            <div id="RightTree" style="padding-top:5px;"></div>
         </div>
         @* Center 主体内容*@
         <div data-options="region:'center',border:false">
             <div id="mainTab" class="easyui-tabs" data-options="fit:'true'">
                 <div title="我的桌面" data-options="closable:true" style="overflow:hidden">
                     <iframe scrolling="auto" frameborder="0" src="@Url.Action("Index","SysSample")" style="width:100%;height:100%">
-                        ...
-                    </iframe>
-                </div>
-                <div title="标题" data-options="closable:true" style="overflow:hidden">
-                    <iframe scrolling="auto" frameborder="0" src="" style="width:100%;height:100%">
                         ...
                     </iframe>
                 </div>
@@ -58,6 +54,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/easyui")
+    @Scripts.Render("~/bundles/jquerytree")
     @Scripts.Render("~/bundles/home")
 
 </body>
