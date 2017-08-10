@@ -1,0 +1,62 @@
+﻿@model Apps.Models.Sys.SysExceptionModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutEdit.cshtml";
+}
+@section style{
+    <style type="text/css">
+        table {
+            margin: 5px auto 0 auto;
+        }
+    </style>
+}
+<div style="width:100%; background: #d2e0f2;border:none">
+    <a id="btnBack" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-back'">返回</a>
+</div>
+<table>
+    <tbody>
+        <tr>
+            <th>@Html.LabelFor(model => model.HelpLink)</th>
+            <td>@Html.EditorFor(model => model.HelpLink)</td>
+        </tr>
+
+        <tr>
+            <th>@Html.LabelFor(model => model.Message)</th>
+            <td>@Html.TextAreaFor(model => model.Message)</td>
+        </tr>
+
+        <tr>
+            <th>@Html.LabelFor(model => model.Source)</th>
+            <td>@Html.EditorFor(model => model.Source)</td>
+        </tr>
+
+        <tr>
+            <th>@Html.LabelFor(model => model.StackTrace)</th>
+            <td>@Html.EditorFor(model => model.StackTrace)</td>
+        </tr>
+
+        <tr>
+            <th>@Html.LabelFor(model => model.TargetSite)</th>
+            <td>@Html.EditorFor(model => model.TargetSite)</td>
+        </tr>
+
+        <tr>
+            <th>@Html.LabelFor(model => model.Data)</th>
+            <td>@Html.EditorFor(model => model.Data)</td>
+        </tr>
+
+        <tr>
+            <th>@Html.LabelFor(model => model.CreateTime)</th>
+            <td>@Html.EditorFor(model => model.CreateTime)</td>
+        </tr>
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $("#btnBack").click(function () {
+            window.parent.frameReturnByClose();
+        });
+    </script>
+}

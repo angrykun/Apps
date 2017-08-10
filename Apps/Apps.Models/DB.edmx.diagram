@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="AppsDbdbModel.SysSample" PointX="0.75" PointY="0.75" Width="1.5" />
         <EntityTypeShape EntityType="AppsDbdbModel.SysModule" Width="1.5" PointX="2.75" PointY="0.625" />
         <EntityTypeShape EntityType="AppsDbdbModel.SysLog" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AppsDbdbModel.SysException" Width="1.5" PointX="6.5" PointY="0.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

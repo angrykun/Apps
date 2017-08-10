@@ -5,6 +5,19 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AppsDbdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SysException">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="HelpLink" Type="varchar" MaxLength="500" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="Source" Type="varchar" MaxLength="500" />
+          <Property Name="StackTrace" Type="text" />
+          <Property Name="TargetSite" Type="varchar" MaxLength="500" />
+          <Property Name="Data" Type="varchar" MaxLength="500" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+        </EntityType>
         <EntityType Name="SysLog">
           <Key>
             <PropertyRef Name="ID" />
@@ -48,6 +61,7 @@
           <Property Name="CreateTime" Type="datetime" Precision="0" />
         </EntityType>
         <EntityContainer Name="AppsDbdbModelStoreContainer">
+          <EntitySet Name="SysException" EntityType="Self.SysException" Schema="appsdb" store:Type="Tables" />
           <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="appsdb" store:Type="Tables" />
           <EntitySet Name="SysModule" EntityType="Self.SysModule" Schema="appsdb" store:Type="Tables" />
           <EntitySet Name="SysSample" EntityType="Self.SysSample" Schema="appsdb" store:Type="Tables" />
@@ -60,6 +74,7 @@
           <EntitySet Name="SysSample" EntityType="AppsDbdbModel.SysSample" />
           <EntitySet Name="SysModule" EntityType="AppsDbdbModel.SysModule" />
           <EntitySet Name="SysLog" EntityType="AppsDbdbModel.SysLog" />
+          <EntitySet Name="SysException" EntityType="AppsDbdbModel.SysException" />
         </EntityContainer>
         <EntityType Name="SysSample">
           <Key>
@@ -101,6 +116,19 @@
           <Property Name="Result" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Module" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="SysException">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="HelpLink" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Source" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="CreateTime" Type="DateTime" />
         </EntityType>
       </Schema>
@@ -150,6 +178,20 @@
                 <ScalarProperty Name="Result" ColumnName="Result" />
                 <ScalarProperty Name="Message" ColumnName="Message" />
                 <ScalarProperty Name="Operator" ColumnName="Operator" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysException">
+            <EntityTypeMapping TypeName="AppsDbdbModel.SysException">
+              <MappingFragment StoreEntitySet="SysException">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="TargetSite" ColumnName="TargetSite" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="HelpLink" ColumnName="HelpLink" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
