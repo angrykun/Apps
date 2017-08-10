@@ -31,6 +31,7 @@ namespace Apps.DAL
                 db.Entry(item).State = System.Data.Entity.EntityState.Deleted;
                 db.SysLog.Remove(item);
             });
+            db.SaveChanges();
         }
 
         public SysLog GetById(string id)

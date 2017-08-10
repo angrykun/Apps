@@ -729,6 +729,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Apps.Admin\Apps.Admin.csproj">
+      <Project>{e99c157f-dc0d-4cc0-b45e-e5763ca6f5f0}</Project>
+      <Name>Apps.Admin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Apps.BLL\Apps.BLL.csproj">
       <Project>{29349dd9-8d5f-4c00-8139-b972e455c536}</Project>
       <Name>Apps.BLL</Name>

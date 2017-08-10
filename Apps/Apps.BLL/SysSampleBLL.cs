@@ -10,12 +10,13 @@ using Apps.Models.Sys;
 using Apps.IBLL;
 using Microsoft.Practices.Unity;
 using Apps.Common;
-
+using Apps.BLL.Core;
 
 namespace Apps.BLL
 {
     public class SysSampleBLL : ISysSampleBLL
     {
+       
         private DbContainer db = new DbContainer();
         //private ISysSampleRepository Rep = new SysSampleRepository();
         [Dependency]
@@ -84,7 +85,7 @@ namespace Apps.BLL
             return modelList;
         }
 
-        public bool Create(SysSampleModel model)
+        public bool Create(ref ValidationErrors errors, SysSampleModel model)
         {
             try
             {
@@ -92,6 +93,7 @@ namespace Apps.BLL
                 SysSample entity = Rep.GetById(model.ID);
                 if (entity != null)
                 {
+                    errors.Add("主键重复");
                     return false;
                 }
                 entity = new SysSample();
@@ -106,10 +108,13 @@ namespace Apps.BLL
                 {
                     return true;
                 }
+                errors.Add("插入失败");
                 return false;
             }
             catch (Exception ex)
             {
+                errors.Add(ex.Message);
+                ExceptionHander.WriteException(ex);
                 return false;
             }
         }

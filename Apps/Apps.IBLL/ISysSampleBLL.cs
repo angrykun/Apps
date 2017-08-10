@@ -12,7 +12,7 @@ namespace Apps.IBLL
     public interface ISysSampleBLL
     {
         List<SysSampleModel> GetList(ref GridPager pager);
-        bool Create(SysSampleModel entity);
+        bool Create(ref ValidationErrors errors, SysSampleModel entity);
         bool Delete(int id);
         bool Edit(SysSampleModel entity);
         SysSampleModel GetById(int id);

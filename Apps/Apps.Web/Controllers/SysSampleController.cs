@@ -9,6 +9,7 @@ using Apps.Models;
 using Microsoft.Practices.Unity;
 using Apps.Models.Sys;
 using Apps.Common;
+using Apps.Admin;
 
 namespace Apps.Web.Controllers
 {
@@ -21,6 +22,7 @@ namespace Apps.Web.Controllers
         [Dependency]
         public ISysSampleBLL m_BLL { get; set; }
 
+        ValidationErrors errors = new ValidationErrors();
         // GET: SysSample
         public ActionResult Index()
         {
@@ -60,12 +62,14 @@ namespace Apps.Web.Controllers
         [ValidateInput(true)]
         public ActionResult Create(SysSampleModel model)
         {
-            if (m_BLL.Create(model))
+            if (m_BLL.Create(ref errors, model))
             {
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + model.ID.ToString() + ",Name:" + model.Name, Result = "成功", Type = "创建", Module = "样例程序" });
                 return Json(1, JsonRequestBehavior.AllowGet);
             }
             else
             {
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + model.ID.ToString() + ",Name:" + model.Name, Result = "失败", Type = "创建", Module = "样例程序" });
                 return Json(0, JsonRequestBehavior.AllowGet);
             }
         }

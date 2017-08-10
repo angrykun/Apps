@@ -25,3 +25,7 @@ E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\Microsoft.Practices.Unity.
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\Apps.Common.dll
 E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\Apps.Common.pdb
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\Apps.BLL.dll.config
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\AMyProject\ProjectGit\Apps\Apps\Apps.BLL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

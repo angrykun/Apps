@@ -93,6 +93,7 @@
     <Compile Include="Sys\SysExceptionModel.cs" />
     <Compile Include="Sys\SysLogModel.cs" />
     <Compile Include="Sys\SysSampleModel.cs" />
+    <Compile Include="ValidationErrors.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -119,6 +120,12 @@
       <DependentUpon>DB.edmx</DependentUpon>
       <LastGenOutput>DB.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Apps.Common\Apps.Common.csproj">
+      <Project>{8f80ceff-688a-47fa-8bd8-764ca0ae5f64}</Project>
+      <Name>Apps.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,19 +12,19 @@ namespace Apps.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class DbContainer : DbContext
     {
         public DbContainer()
             : base("name=DbContainer")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<SysSample> SysSample { get; set; }
         public virtual DbSet<SysModule> SysModule { get; set; }
         public virtual DbSet<SysLog> SysLog { get; set; }
