@@ -62,5 +62,15 @@ namespace Apps.Web.Controllers
                 return Json(0, JsonRequestBehavior.AllowGet);
             }
         }
+
+        /// <summary>
+        /// 错误页面
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Error()
+        {
+            BaseException exception = new BaseException();
+            return View(exception);
+        }
     }
 }

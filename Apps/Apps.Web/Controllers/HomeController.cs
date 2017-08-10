@@ -21,6 +21,7 @@ namespace Apps.Web.Controllers
             account.Id = "admin";
             account.TrueName = "admin";
             Session["Account"] = account;
+            Convert.ToInt16("aaaaaaa");
 
             return View();
         }
@@ -28,6 +29,7 @@ namespace Apps.Web.Controllers
         [HttpPost]
         public JsonResult GetTree(string id)
         {
+
             var menus = homeBLL.GetMenuByPersonId(id);
             var jsonData = (from m in menus
                             select new
