@@ -92,7 +92,7 @@
             //新增
             $("#btnCreate").click(function () {
                 $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='SysSample/Create'></iframe>")
-                    .window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add' })
+                    .window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add',modal:true })
                     .window('open');
             });
             //编辑
@@ -101,7 +101,7 @@
 
                 if (row != null) {
                     $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='SysSample/Edit?ID=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>")
-                    .window({ title: '编辑', width: 700, height: 430, iconCls: 'icon-edit' })
+                    .window({ title: '编辑', width: 700, height: 430, iconCls: 'icon-edit', modal: true })
                     .window("open");
                 }
                 else {
@@ -114,7 +114,7 @@
                 var row = $("#list").datagrid("getSelected");
                 if (row != null) {
                     $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='SysSample/Details?id=" + row.ID + "&Ieguid=" + GetGuid() + "'></iframe>")
-                     .window({ title: '详细', width: 500, height: 300, iconCls: 'icon-details' })
+                     .window({ title: '详细', width: 500, height: 300, iconCls: 'icon-details', modal: true })
                      .window("open");
                 }
                 else {

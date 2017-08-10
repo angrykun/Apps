@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="AppsDbdbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SysLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Operator" Type="varchar" MaxLength="45" />
+          <Property Name="Message" Type="varchar" MaxLength="45" />
+          <Property Name="Result" Type="varchar" MaxLength="45" />
+          <Property Name="Type" Type="varchar" MaxLength="45" />
+          <Property Name="Module" Type="varchar" MaxLength="45" />
+          <Property Name="CreateTime" Type="datetime" Precision="0" />
+        </EntityType>
         <EntityType Name="SysModule">
           <Key>
             <PropertyRef Name="ID" />
@@ -36,6 +48,7 @@
           <Property Name="CreateTime" Type="datetime" Precision="0" />
         </EntityType>
         <EntityContainer Name="AppsDbdbModelStoreContainer">
+          <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="appsdb" store:Type="Tables" />
           <EntitySet Name="SysModule" EntityType="Self.SysModule" Schema="appsdb" store:Type="Tables" />
           <EntitySet Name="SysSample" EntityType="Self.SysSample" Schema="appsdb" store:Type="Tables" />
         </EntityContainer>
@@ -46,6 +59,7 @@
         <EntityContainer Name="DbContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SysSample" EntityType="AppsDbdbModel.SysSample" />
           <EntitySet Name="SysModule" EntityType="AppsDbdbModel.SysModule" />
+          <EntitySet Name="SysLog" EntityType="AppsDbdbModel.SysLog" />
         </EntityContainer>
         <EntityType Name="SysSample">
           <Key>
@@ -76,6 +90,18 @@
           <Property Name="CreateTime" Type="DateTime" />
           <Property Name="IsLast" Type="Boolean" />
           <Property Name="Version" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Operator" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Result" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Module" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -111,6 +137,19 @@
                 <ScalarProperty Name="ParentID" ColumnName="ParentID" />
                 <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysLog">
+            <EntityTypeMapping TypeName="AppsDbdbModel.SysLog">
+              <MappingFragment StoreEntitySet="SysLog">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Module" ColumnName="Module" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Operator" ColumnName="Operator" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

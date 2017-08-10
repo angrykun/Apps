@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Apps.BLL;
 using Apps.IBLL;
 using Apps.Models;
+using Apps.Models.Sys;
 using Microsoft.Practices.Unity;
 
 namespace Apps.Web.Controllers
@@ -16,6 +17,11 @@ namespace Apps.Web.Controllers
         public IHomeBLL homeBLL { get; set; }
         public ActionResult Index()
         {
+            AccountModel account = new AccountModel();
+            account.Id = "admin";
+            account.TrueName = "admin";
+            Session["Account"] = account;
+
             return View();
         }
 

@@ -86,7 +86,7 @@ $(function () {
     });
 });
 
-function addTab(subtitle,url,icon) {
+function addTab(subtitle, url, icon) {
     if (!$("#mainTab").tabs('exists', subtitle)) {
         $("#mainTab").tabs('add', {
             title: subtitle,
@@ -117,7 +117,6 @@ $(function () {
     });
 });
 $(function () {
-
     var o = {
         showcheck: false,
         url: "/Home/GetTree",
@@ -141,3 +140,12 @@ $(function () {
         $("#RightTree").treeview(o);;
     }, "json");
 });
+
+
+//生成唯一GUID
+function GetGuid() {
+    var s4 = function () {
+        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    };
+    return s4() + s4() + s4() + "-" + s4();
+}

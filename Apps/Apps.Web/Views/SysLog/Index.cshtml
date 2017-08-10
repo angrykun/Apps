@@ -1,0 +1,116 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+}
+@section style{
+    <style type="text/css">
+        .mvctool {
+            margin-bottom: 5px;
+        }
+
+            .mvctool::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+
+        #modalwindow {
+            display: none;
+        }
+    </style>
+}
+
+<div id="modalwindow"></div>
+
+<div class="mvctool">
+    <input id="txtQuery" class="easyui-textbox">
+    <a id="btnQuery" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+    <a id="btnDetails" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-details'">详细</a>
+    <a id="btnDelete" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+</div>
+
+@* 表格 *@
+<table id="list"></table>
+
+@section scripts{
+    @Scripts.Render("~/bundles/easyui.plus")
+    <script>
+        $("#list").datagrid({
+            striped: true,
+            method: 'post',
+            idField: 'ID',
+            url: "/SysLog/GetList",
+            pagination: true,
+            pageNumber: 1,
+            pageSize: 15,
+            pageList: [5, 10, 15, 20, 25, 30],
+            sortName: 'ID',
+            columns: [[
+                { field: 'ID', title: 'ID', width: 80 },
+                { field: 'Operator', title: '操作人', width: 80 },
+                { field: 'Message', title: '信息', width: 300 },
+                { field: 'Result', title: '结果', width: 80 },
+                { field: 'Type', title: '类型', width: 80 },
+                { field: 'Module', title: '模块', width: 80 },
+                { field: 'CreateTime', title: '创建时间', width: 200, align: 'center' }
+            ]]
+        });
+    </script>
+
+    <script>
+        //生成唯一GUID
+        function GetGuid() {
+            var s4 = function () {
+                return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+            };
+            return s4() + s4() + s4() + "-" + s4();
+        }
+        //关闭iframe
+        function frameReturnByClose() {
+            $("#modalwindow").window('close');
+        }
+        function frameReturnByReload(flag) {
+            if (flag)
+                $("#list").datagrid('load');
+            else
+                $("#list").datagrid('reload');
+        }
+
+        //弹框提示
+        function frameReturnByMes(mes) {
+            $.messager.alert("提示", mes);
+        }
+        //详细信息
+        $("#btnDetails").click(function () {
+            var row = $("#list").datagrid("getSelected");
+            if (row != null) {
+                $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='/SysLog/Details?id=" + row.ID + "&guid=" + GetGuid() + "'></iframe>")
+                .window({ title: "详细", width: 600, height: 300, iconCls: "icon-details", modal: true })
+                .window("open");
+            }
+            else {
+                $.messageBox5s('提示', '请选择要操作的记录');
+            }
+        });
+        //删除
+        $("#btnDelete").click(function () {
+            var row = $("#list").datagrid("getSelected");
+            if (row != null) {
+                $.messager.confirm('确认', '您确认想要删除记录吗？', function (r) {
+                    if (r) {
+                        $.post("/SysLog/Delete", { "id": row.ID, "guid": GetGuid() }, function (data) {
+                            if (data == 1) {
+                                frameReturnByMes("删除成功");
+                                return;
+                            }
+                            frameReturnByMes("删除失败");
+                        }, "json");
+                    }
+                });
+            }
+            else {
+                $.messageBox5s('提示', '请选择要操作的记录');
+            }
+        });
+    </script>
+}

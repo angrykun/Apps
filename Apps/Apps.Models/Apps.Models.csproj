@@ -75,12 +75,17 @@
       <DependentUpon>DB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysLog.cs">
+      <DependentUpon>DB.tt</DependentUpon>
+    </Compile>
     <Compile Include="SysModule.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="SysSample.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys\AccountModel.cs" />
+    <Compile Include="Sys\SysLogModel.cs" />
     <Compile Include="Sys\SysSampleModel.cs" />
   </ItemGroup>
   <ItemGroup>
