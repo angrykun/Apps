@@ -8,6 +8,8 @@ using Apps.Models;
 using Microsoft.Practices.Unity;
 using Apps.IBLL;
 using Apps.Models.Sys;
+using Apps.Core;
+using Apps.Admin;
 
 namespace Apps.Web.Controllers
 {
@@ -16,6 +18,9 @@ namespace Apps.Web.Controllers
 
         [Dependency]
         public ISysLogBLL SysLogBLL { get; set; }
+
+        ValidationErrors errors = new ValidationErrors();
+
         // GET: SysLog
         public ActionResult Index()
         {
@@ -70,13 +75,16 @@ namespace Apps.Web.Controllers
         [HttpPost]
         public JsonResult Delete(string id)
         {
-            if (SysLogBLL.Delete(id))
+            if (SysLogBLL.Delete(ref errors, id))
             {
-                return Json(1, JsonRequestBehavior.AllowGet);
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + id.ToString(), Result = "成功", Type = "删除", Module = "系统日志" });
+                return Json(JsonHandler.CreateMessage(1, "删除成功"), JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return Json(0, JsonRequestBehavior.AllowGet);
+                string ErrorCol = errors.Error;
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + id.ToString(), Result = "失败", Type = "删除", Module = "系统日志" });
+                return Json(JsonHandler.CreateMessage(0, "删除失败" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
         }
 

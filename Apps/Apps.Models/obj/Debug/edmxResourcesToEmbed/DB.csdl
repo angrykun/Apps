@@ -3,8 +3,8 @@
   <EntityContainer Name="DbContainer" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="SysSample" EntityType="AppsDbdbModel.SysSample" />
     <EntitySet Name="SysModule" EntityType="AppsDbdbModel.SysModule" />
-    <EntitySet Name="SysLog" EntityType="AppsDbdbModel.SysLog" />
     <EntitySet Name="SysException" EntityType="AppsDbdbModel.SysException" />
+    <EntitySet Name="SysLog" EntityType="AppsDbdbModel.SysLog" />
   </EntityContainer>
   <EntityType Name="SysSample">
     <Key>
@@ -36,18 +36,6 @@
     <Property Name="IsLast" Type="Boolean" />
     <Property Name="Version" Type="DateTime" Nullable="false" />
   </EntityType>
-  <EntityType Name="SysLog">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Operator" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Message" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Result" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="Module" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-    <Property Name="CreateTime" Type="DateTime" />
-  </EntityType>
   <EntityType Name="SysException">
     <Key>
       <PropertyRef Name="ID" />
@@ -59,6 +47,18 @@
     <Property Name="StackTrace" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
     <Property Name="TargetSite" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="Data" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="SysLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Operator" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Result" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Module" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="CreateTime" Type="DateTime" />
   </EntityType>
 </Schema>

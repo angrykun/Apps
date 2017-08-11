@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Apps.IDAL;
 using Apps.Models;
+using System.Data.Entity.Validation;
 
 namespace Apps.DAL
 {

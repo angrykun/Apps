@@ -86,13 +86,18 @@
             $.messager.alert("提示", mes);
         }
 
+        function frameReturnBoxByMes(mes) {
+            $.messageBox5s('提示', mes);
+        }
+
+
         $(function () {
             //关闭window弹窗
             $("#modalwindow").window('close');
             //新增
             $("#btnCreate").click(function () {
                 $("#modalwindow").html("<iframe width='100%' height='80%' scrolling='no' frameborder='0' src='SysSample/Create'></iframe>")
-                    .window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add',modal:true })
+                    .window({ title: '新增', width: 700, height: 400, iconCls: 'icon-add', modal: true })
                     .window('open');
             });
             //编辑
@@ -141,12 +146,12 @@
                     $.messager.confirm("提示", "确定删除", function (r) {
                         if (r) {
                             $.post("/SysSample/Delete?id=" + row.ID, function (data) {
-                                if (data == 1) {
+                                if (data.type == 1) {
                                     $("#list").datagrid('reload');
-                                    $.messageBox5s('提示', "删除成功");
+                                    $.messageBox5s('提示', data.message);
                                     return;
                                 }
-                                $.messageBox5s('提示', "删除失败");
+                                $.messageBox5s('提示', data.message);
                             });
                         }
                     }, "json");

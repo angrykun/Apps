@@ -16,48 +16,57 @@ namespace Apps.BLL
 {
     public class SysSampleBLL : ISysSampleBLL
     {
-       
+
         private DbContainer db = new DbContainer();
         //private ISysSampleRepository Rep = new SysSampleRepository();
         [Dependency]
         public ISysSampleRepository Rep { get; set; }
         public List<SysSampleModel> GetList(ref GridPager pager)
         {
-            IQueryable<SysSample> queryData = null;
-            queryData = Rep.GetList(db);
-
-            if (pager.sort == "desc")
+            try
             {
-                switch (pager.order)
-                {
-                    case "ID":
-                        queryData = queryData.OrderByDescending(u => u.ID);
-                        break;
-                    case "Name":
-                        queryData = queryData.OrderByDescending(u => u.Name);
-                        break;
-                    default:
-                        queryData = queryData.OrderByDescending(u => u.CreateTime);
-                        break;
-                }
-            }
-            else
-            {
-                switch (pager.order)
-                {
-                    case "ID":
-                        queryData = queryData.OrderBy(u => u.ID);
-                        break;
-                    case "Name":
-                        queryData = queryData.OrderBy(u => u.Name);
-                        break;
-                    default:
-                        queryData = queryData.OrderBy(u => u.CreateTime);
-                        break;
-                }
-            }
+                IQueryable<SysSample> queryData = null;
+                queryData = Rep.GetList(db);
 
-            return CreateModelList(ref queryData, ref pager);
+                if (pager.sort == "desc")
+                {
+                    switch (pager.order)
+                    {
+                        case "ID":
+                            queryData = queryData.OrderByDescending(u => u.ID);
+                            break;
+                        case "Name":
+                            queryData = queryData.OrderByDescending(u => u.Name);
+                            break;
+                        default:
+                            queryData = queryData.OrderByDescending(u => u.CreateTime);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (pager.order)
+                    {
+                        case "ID":
+                            queryData = queryData.OrderBy(u => u.ID);
+                            break;
+                        case "Name":
+                            queryData = queryData.OrderBy(u => u.Name);
+                            break;
+                        default:
+                            queryData = queryData.OrderBy(u => u.CreateTime);
+                            break;
+                    }
+                }
+
+                return CreateModelList(ref queryData, ref pager);
+            }
+            catch (Exception ex)
+            {
+                //写入异常日志
+                ExceptionHander.WriteException(ex);
+                return null;
+            }
         }
 
         private List<SysSampleModel> CreateModelList(ref IQueryable<SysSample> queryData, ref GridPager pager)
@@ -89,7 +98,6 @@ namespace Apps.BLL
         {
             try
             {
-
                 SysSample entity = Rep.GetById(model.ID);
                 if (entity != null)
                 {
@@ -119,7 +127,7 @@ namespace Apps.BLL
             }
         }
 
-        public bool Delete(int id)
+        public bool Delete(ref ValidationErrors errors, int id)
         {
             try
             {
@@ -127,22 +135,27 @@ namespace Apps.BLL
                 {
                     return true;
                 }
+                errors.Add("删除失败");
                 return false;
 
             }
             catch (Exception ex)
             {
+                errors.Add(ex.Message);
+                //写入异常日志
+                ExceptionHander.WriteException(ex);
                 return false;
             }
         }
 
-        public bool Edit(SysSampleModel model)
+        public bool Edit(ref ValidationErrors errors, SysSampleModel model)
         {
             try
             {
                 SysSample entity = Rep.GetById(model.ID);
                 if (entity == null)
                 {
+                    errors.Add("未查到实体");
                     return false;
                 }
                 entity = new SysSample();
@@ -155,29 +168,42 @@ namespace Apps.BLL
                 entity.CreateTime = model.CreateTime;
                 if (Rep.Edit(entity) > 0)
                 { return true; }
+                errors.Add("更新失败");
                 return false;
             }
             catch (Exception ex)
             {
+                errors.Add(ex.Message);
+                //写入异常
+                ExceptionHander.WriteException(ex);
                 return false;
             }
         }
         public SysSampleModel GetById(int id)
         {
-            if (IsExist(id))
+            try
             {
-                SysSample entity = Rep.GetById(id);
-                SysSampleModel model = new SysSampleModel();
-                model.ID = (int)entity.ID;
-                model.Name = entity.Name;
-                model.Age = entity.Age;
-                model.Bir = entity.Bir;
-                model.Photo = entity.Photo;
-                model.Note = entity.Note;
-                model.CreateTime = entity.CreateTime;
-                return model;
+                if (IsExist(id))
+                {
+                    SysSample entity = Rep.GetById(id);
+                    SysSampleModel model = new SysSampleModel();
+                    model.ID = (int)entity.ID;
+                    model.Name = entity.Name;
+                    model.Age = entity.Age;
+                    model.Bir = entity.Bir;
+                    model.Photo = entity.Photo;
+                    model.Note = entity.Note;
+                    model.CreateTime = entity.CreateTime;
+                    return model;
+                }
+                return new SysSampleModel();
             }
-            return new SysSampleModel();
+            catch (Exception ex)
+            {
+                ExceptionHander.WriteException(ex);
+                return null;
+            }
+
         }
 
         public bool IsExist(int id)

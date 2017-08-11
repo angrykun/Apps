@@ -9,6 +9,7 @@ using Apps.Models;
 using Apps.Models.Sys;
 using Apps.Common;
 using Microsoft.Practices.Unity;
+using Apps.BLL.Core;
 
 namespace Apps.BLL
 {
@@ -63,14 +64,26 @@ namespace Apps.BLL
             }
             return null;
         }
-        public bool Delete(string id)
+        public bool Delete(ref ValidationErrors errors, string id)
         {
-            var entity = SysExceptionRepository.GetById(id);
-            if (entity != null)
+            try
             {
-                return SysExceptionRepository.Delete(id);
+                var entity = SysExceptionRepository.GetById(id);
+                if (entity != null)
+                {
+                    return SysExceptionRepository.Delete(id);
+                }
+                errors.Add("未查询到相关信息！");
+                return false;
             }
-            return false;
-        }  
+            catch (Exception ex)
+            {
+                errors.Add(ex.Message);
+                ExceptionHander.WriteException(ex);
+                return false;
+
+            }
+
+        }
     }
 }

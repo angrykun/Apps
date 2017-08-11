@@ -65,12 +65,13 @@ namespace Apps.Web.Controllers
             if (m_BLL.Create(ref errors, model))
             {
                 LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + model.ID.ToString() + ",Name:" + model.Name, Result = "成功", Type = "创建", Module = "样例程序" });
-                return Json(1, JsonRequestBehavior.AllowGet);
+                return Json(JsonHandler.CreateMessage(1, "插入成功"), JsonRequestBehavior.AllowGet);
             }
             else
             {
+                string ErrorCol = errors.Error;
                 LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + model.ID.ToString() + ",Name:" + model.Name, Result = "失败", Type = "创建", Module = "样例程序" });
-                return Json(0, JsonRequestBehavior.AllowGet);
+                return Json(JsonHandler.CreateMessage(0, "插入失败" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -94,13 +95,16 @@ namespace Apps.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SysSampleModel model)
         {
-            if (m_BLL.Edit(model))
+            if (m_BLL.Edit(ref errors, model))
             {
-                return Json(1, JsonRequestBehavior.AllowGet);
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + model.ID.ToString() + ",Name:" + model.Name, Result = "成功", Type = "修改", Module = "样例程序" });
+                return Json(JsonHandler.CreateMessage(1, "修改成功"), JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return Json(0, JsonRequestBehavior.AllowGet);
+                string ErrorCol = errors.Error;
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + model.ID.ToString() + ",Name:" + model.Name, Result = "失败", Type = "修改", Module = "样例程序" });
+                return Json(JsonHandler.CreateMessage(0, "修改失败" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
         }
         #endregion
@@ -109,13 +113,16 @@ namespace Apps.Web.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            if (m_BLL.Delete(id))
-            {
-                return Json(1, JsonRequestBehavior.AllowGet);
+            if (m_BLL.Delete(ref errors, id))
+            {                                    
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + id.ToString(), Result = "成功", Type = "删除", Module = "样例程序" });
+                return Json(JsonHandler.CreateMessage(1, "删除成功" ), JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return Json(0, JsonRequestBehavior.AllowGet);
+                string ErrorCol = errors.Error;
+                LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + id.ToString(), Result = "失败", Type = "删除", Module = "样例程序" });
+                return Json(JsonHandler.CreateMessage(0, "删除失败" + ErrorCol), JsonRequestBehavior.AllowGet);
             }
         }
         #endregion

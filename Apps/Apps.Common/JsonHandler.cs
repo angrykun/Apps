@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Apps.Common
 {
+    /// <summary>
+    /// 返回值 To 前台
+    /// </summary>
     public class JsonHandler
     {
         public static JsonMessage CreateMessage(int ptype, string pmessage, string pvalue)

@@ -17,12 +17,12 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Operator" Type="varchar" MaxLength="45" />
-    <Property Name="Message" Type="varchar" MaxLength="45" />
-    <Property Name="Result" Type="varchar" MaxLength="45" />
-    <Property Name="Type" Type="varchar" MaxLength="45" />
-    <Property Name="Module" Type="varchar" MaxLength="45" />
+    <Property Name="ID" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Operator" Type="varchar" MaxLength="200" />
+    <Property Name="Message" Type="text" />
+    <Property Name="Result" Type="varchar" MaxLength="200" />
+    <Property Name="Type" Type="varchar" MaxLength="200" />
+    <Property Name="Module" Type="varchar" MaxLength="200" />
     <Property Name="CreateTime" Type="datetime" Precision="0" />
   </EntityType>
   <EntityType Name="SysModule">

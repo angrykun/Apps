@@ -17,16 +17,22 @@ namespace Apps.Admin
         public static ISysLogBLL LogBLL { get; set; }
 
         /// <summary>
-        /// 写入日志
+        /// 写入操作日志
         /// </summary>
         /// <param name="entity"></param>
         public static void WriteServiceLog(SysLog entity)
         {
-            entity.ID = ResultHelper.NewId;
-            entity.CreateTime = ResultHelper.NowTime;
-            SysLogRepository log = new SysLogRepository();
+            try
+            {
+                entity.ID = ResultHelper.NewId;
+                entity.CreateTime = ResultHelper.NowTime;
+                SysLogRepository log = new SysLogRepository();
+                log.Create(entity);
+            }
+            catch (Exception ex)
+            {
 
-            log.Create(entity);
+            }
         }
     }
 }

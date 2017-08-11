@@ -106,7 +106,7 @@
                     $.messager.confirm("确认", "您确认想要删除记录吗？", function (r) {
                         if (r) {
                             $.post("/SysException/Delete", { id: row.ID, guid: GetGuid() }, function (data) {
-                                if (data == 1) {
+                                if (data.type == 1) {
                                     frameReturnByMes("删除成功");
                                     $("#list").datagrid("reload");
                                     return false;

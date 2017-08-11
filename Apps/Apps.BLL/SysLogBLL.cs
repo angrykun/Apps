@@ -8,6 +8,7 @@ using Apps.Common;
 using Apps.IBLL;
 using Apps.IDAL;
 using Microsoft.Practices.Unity;
+using Apps.BLL.Core;
 
 namespace Apps.BLL
 {
@@ -44,17 +45,28 @@ namespace Apps.BLL
             return SysLogRepository.GetById(id);
         }
 
-        public bool Delete(string id)
+        public bool Delete(ref ValidationErrors errors, string id)
         {
-            var entity = GetById(id);
-            if (entity != null)
+            try
             {
-                string[] collection = new string[1];
-                collection[0] = id;
-                SysLogRepository.Delete(new DbContainer(), collection);
-                return true;
+                var entity = GetById(id);
+                if (entity != null)
+                {
+                    string[] collection = new string[1];
+                    collection[0] = id;
+                    SysLogRepository.Delete(new DbContainer(), collection);
+                    return true;
+                }
+                errors.Add("未查询到相关信息");
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+                errors.Add(ex.Message);
+                ExceptionHander.WriteException(ex);
+                return false;
+            }
+
         }
     }
 }
