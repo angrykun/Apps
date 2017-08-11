@@ -1,4 +1,5 @@
 ﻿@using Apps.Common
+@using Apps.Admin
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,9 +18,9 @@
 <div id="modalwindow"></div>
 <div class="mvctool">
     <input id="txtQuery" class="easyui-textbox" />
-    <a id="btnQuery" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
-    <a id="btnDetails" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-details'">详情</a>
-    <a id="btnDelete" href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">删除</a>
+    @Html.ToolButton("btnQuery", "icon-search", "查询")
+    @Html.ToolButton("btnDetails", "icon-details", "详细")
+    @Html.ToolButton("btnDelete", "icon-remove", "删除")
 </div>
 
 <table id="list"></table>
