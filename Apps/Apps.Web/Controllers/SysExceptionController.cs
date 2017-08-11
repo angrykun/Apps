@@ -13,7 +13,7 @@ using Apps.Models;
 
 namespace Apps.Web.Controllers
 {
-    public class SysExceptionController : Controller
+    public class SysExceptionController : BaseController
     {
         [Dependency]
         public ISysExceptionBLL SysExceptionBLL { get; set; }

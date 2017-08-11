@@ -13,7 +13,7 @@ using Apps.Admin;
 
 namespace Apps.Web.Controllers
 {
-    public class SysLogController : Controller
+    public class SysLogController : BaseController
     {
 
         [Dependency]

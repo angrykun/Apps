@@ -13,7 +13,7 @@ using Apps.Admin;
 
 namespace Apps.Web.Controllers
 {
-    public class SysSampleController : Controller
+    public class SysSampleController : BaseController
     {
         //private ISysSampleBLL bll = new SysSampleBLL();
         /// <summary>
@@ -114,9 +114,9 @@ namespace Apps.Web.Controllers
         public ActionResult Delete(int id)
         {
             if (m_BLL.Delete(ref errors, id))
-            {                                    
+            {
                 LogHandler.WriteServiceLog(new SysLog { Operator = "虚拟用户", Message = "ID:" + id.ToString(), Result = "成功", Type = "删除", Module = "样例程序" });
-                return Json(JsonHandler.CreateMessage(1, "删除成功" ), JsonRequestBehavior.AllowGet);
+                return Json(JsonHandler.CreateMessage(1, "删除成功"), JsonRequestBehavior.AllowGet);
             }
             else
             {
