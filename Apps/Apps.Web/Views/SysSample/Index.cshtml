@@ -1,4 +1,4 @@
-﻿
+﻿@using Apps.Common
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -112,7 +112,7 @@
                     .window("center");
                 }
                 else {
-                    $.messageBox5s('提示', '请选择要操作的记录');
+                    $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords');
                 }
             });
 
@@ -126,7 +126,7 @@
                     .window("center");
                 }
                 else {
-                    $.messageBox5s('提示', '请选择要操作的记录');
+                    $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords');
                 }
             });
 
@@ -146,7 +146,7 @@
             $("#btnDelete").click(function () {
                 var row = $("#list").datagrid("getSelected");
                 if (row != null) {
-                    $.messager.confirm("提示", "确定删除", function (r) {
+                    $.messager.confirm("提示", "@Suggestion.YouWantToDeleteTheSelectedRecords", function (r) {
                         if (r) {
                             $.post("/SysSample/Delete?id=" + row.ID, function (data) {
                                 if (data.type == 1) {
@@ -160,7 +160,7 @@
                     }, "json");
                 }
                 else {
-                    $.messageBox5s('提示', '请选择要操作的记录');
+                    $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords');
                 }
             });
         });

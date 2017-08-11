@@ -1,4 +1,4 @@
-﻿
+﻿@using Apps.Common
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -97,28 +97,28 @@
                     .window("center");
                 }
                 else {
-                    $.messageBox5s('提示', '请选择要操作的记录');
+                    $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords');
                 }
             });
             //删除
             $("#btnDelete").click(function () {
                 var row = $("#list").datagrid("getSelected");
                 if (row != null) {
-                    $.messager.confirm("确认", "您确认想要删除记录吗？", function (r) {
+                    $.messager.confirm("确认", "@Suggestion.YouWantToDeleteTheSelectedRecords", function (r) {
                         if (r) {
                             $.post("/SysException/Delete", { id: row.ID, guid: GetGuid() }, function (data) {
                                 if (data.type == 1) {
-                                    frameReturnByMes("删除成功");
+                                    frameReturnByMes(data.message);
                                     $("#list").datagrid("reload");
                                     return false;
                                 }
-                                frameReturnByMes("删除失败");
+                                frameReturnByMes(data.message);
                             }, "json");
                         }
                     });
                 }
                 else {
-                    $.messageBox5s('提示', '请选择要操作的记录');
+                    $.messageBox5s('提示', '@Suggestion.PlaseChooseToOperatingRecords');
                 }
             });
         });
