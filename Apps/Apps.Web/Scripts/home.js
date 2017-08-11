@@ -75,7 +75,8 @@
 });
 
 $(function () {
-    $(".tabs li").on("contextmenu", function (e) {
+
+    $("#mainTab").on("contextmenu", ".tabs li", function (e) {
         var subTitle = $(this).text();
         $("#mainTab").tabs("select", subTitle);
         $("#tab_menu").menu("show", {
